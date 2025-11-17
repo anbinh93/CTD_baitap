@@ -23,7 +23,25 @@ Hỗ trợ **truyền tham số** linh hoạt
 - Xử lý collision: Chaining (linked list)
 - Độ phức tạp: O(1) trung bình cho insert/search
 
-## Biên Dịch
+## Biên Dịch và Chạy
+
+### Sử dụng Makefile (Khuyến nghị)
+
+```bash
+# Biên dịch
+make
+
+# Biên dịch và chạy với alice30.txt
+make run
+
+# Chạy test với vanban.txt
+make test
+
+# Dọn dẹp file thực thi và output
+make clean
+```
+
+### Biên dịch thủ công
 
 ```bash
 gcc checkDoc.c -o checkDoc
