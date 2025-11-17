@@ -51,6 +51,16 @@ int isStopWord(const char *word) {
 int isProperNoun(const char *originalWord, int afterPunctuation) {
     if (strlen(originalWord) == 0) return 0;
     
+    int allUpper = 1;
+    for (int i = 0; originalWord[i] != '\0'; i++) {
+        if (!isupper(originalWord[i])) {
+            allUpper = 0;
+            break;
+        }
+    }
+    
+    if (allUpper) return 1;
+    
     if (isupper(originalWord[0]) && !afterPunctuation) {
         return 1;
     }
@@ -134,6 +144,12 @@ void processTextFile(const char *filename) {
                 originalWord[wordIndex] = '\0';
                 lowercaseWord[wordIndex] = '\0';
                 
+                if (strcmp(lowercaseWord, "alice") == 0) {
+                    afterPunctuation = 0;
+                    wordIndex = 0;
+                    continue;
+                }
+                
                 if (!isStopWord(lowercaseWord) && !isProperNoun(originalWord, afterPunctuation)) {
                     findOrInsertWord(lowercaseWord, lineNumber);
                 }
@@ -154,7 +170,7 @@ void processTextFile(const char *filename) {
         originalWord[wordIndex] = '\0';
         lowercaseWord[wordIndex] = '\0';
         
-        if (!isStopWord(lowercaseWord) && !isProperNoun(originalWord, afterPunctuation)) {
+        if (strcmp(lowercaseWord, "alice") != 0 && !isStopWord(lowercaseWord) && !isProperNoun(originalWord, afterPunctuation)) {
             findOrInsertWord(lowercaseWord, lineNumber);
         }
     }

@@ -9,13 +9,13 @@ $(TARGET): $(SRC)
 	$(CC) $(CFLAGS) -o $(TARGET) $(SRC)
 
 run: $(TARGET)
-	./$(TARGET) completed/alice30.txt
+	./$(TARGET) alice30.txt stopw.txt output.txt
 
 clean:
 	rm -f $(TARGET) output.txt
 
 test: $(TARGET)
-	./$(TARGET) completed/vanban.txt
+	./$(TARGET) vanban.txt stopw.txt output.txt
 	@echo "\n--- Output preview ---"
 	@head -20 output.txt
 
