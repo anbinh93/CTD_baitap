@@ -1,0 +1,14 @@
+PROGRAM TestMultiAssign;
+VAR x : INTEGER;
+    y : INTEGER;
+    z : INTEGER;
+    a : CHAR;
+    b : CHAR;
+
+BEGIN
+  x, y, z := 1, 2, 3;
+  a, b := 'A', 'B';
+  CALL WriteI(x);
+  CALL WriteI(y);
+  CALL WriteI(z)
+END.

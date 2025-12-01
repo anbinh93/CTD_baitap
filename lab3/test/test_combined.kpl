@@ -1,0 +1,18 @@
+PROGRAM TestBoth;
+VAR i : INTEGER;
+    j : INTEGER;
+    k : INTEGER;
+
+BEGIN
+  i, j, k := 0, 0, 1;
+  
+  REPEAT
+    i := i + 1;
+    j := j + 2;
+    k, i := k + 1, i * 2;
+    CALL WriteI(k)
+  UNTIL k > 5;
+  
+  CALL WriteI(i);
+  CALL WriteI(j)
+END.

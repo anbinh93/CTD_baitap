@@ -1,0 +1,13 @@
+PROGRAM TestRepeat;
+VAR i : INTEGER;
+    sum : INTEGER;
+
+BEGIN
+  i := 1;
+  sum := 0;
+  REPEAT
+    sum := sum + i;
+    i := i + 1
+  UNTIL i > 10;
+  CALL WriteI(sum)
+END.
